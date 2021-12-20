@@ -1,10 +1,10 @@
-import Time from "./Time";
-import TimeExtras from "./TimeExtras";
+import Time from "./lib/Time";
+import TimeExtras from "./lib/TimeExtras";
 
-const time = Time.fromString("21:16.842");
-const sub = Time.fromString("18:08");
+const time = Time.fromString("95");
+const sub = Time.fromString("27.36");
 
-const seconds = TimeExtras.toSeconds(TimeExtras.delta(time, sub));
+const seconds = TimeExtras.toSeconds(TimeExtras.add(time, sub));
 
 console.log(time.toString());
 console.log(seconds);
