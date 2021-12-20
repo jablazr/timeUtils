@@ -32,7 +32,7 @@ export default class Time implements ITime {
     this.milliseconds = normalized.milliseconds;
   }
 
-  public static fromObject(object: ITime) {
+  public static fromObject(object: ITime): Time {
     const time = Time.normalize(object);
 
     return new Time(time.hours, time.minutes, time.seconds, time.milliseconds);
@@ -81,7 +81,7 @@ export default class Time implements ITime {
     );
   }
 
-  public static normalize(time: ITime) {
+  public static normalize(time: ITime): ITime {
     const msCarryOver = Math.floor(time.milliseconds / 1000);
     time.seconds += msCarryOver;
     time.milliseconds %= 1000;

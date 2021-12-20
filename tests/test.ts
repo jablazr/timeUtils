@@ -321,7 +321,7 @@ test("time addition 4", () => {
   return equals(isEqual(TimeExtras.add(time, add), result));
 });
 
-test("time subtraction 1", () => {
+test("time difference 1", () => {
   const time: ITime = {
     hours: 0,
     minutes: 0,
@@ -343,10 +343,10 @@ test("time subtraction 1", () => {
     milliseconds: 0,
   };
 
-  return equals(isEqual(TimeExtras.subtract(time, subtract), result));
+  return equals(isEqual(TimeExtras.delta(time, subtract), result));
 });
 
-test("time subtraction 2", () => {
+test("time difference 2", () => {
   const time: ITime = {
     hours: 10,
     minutes: 10,
@@ -368,10 +368,10 @@ test("time subtraction 2", () => {
     milliseconds: 5,
   };
 
-  return equals(isEqual(TimeExtras.subtract(time, subtract), result));
+  return equals(isEqual(TimeExtras.delta(time, subtract), result));
 });
 
-test("time subtraction 3", () => {
+test("time difference 3", () => {
   const time: ITime = {
     hours: 1,
     minutes: 2,
@@ -388,15 +388,15 @@ test("time subtraction 3", () => {
 
   const result: ITime = {
     hours: 0,
-    minutes: 0,
-    seconds: 0,
-    milliseconds: 0,
+    minutes: 57,
+    seconds: 56,
+    milliseconds: 996,
   };
 
-  return equals(isEqual(TimeExtras.subtract(time, subtract), result));
+  return equals(isEqual(TimeExtras.delta(time, subtract), result));
 });
 
-test("time subtraction 4", () => {
+test("time difference 4", () => {
   const time: ITime = {
     hours: 100,
     minutes: 0,
@@ -423,7 +423,7 @@ test("time subtraction 4", () => {
 
   // console.log(sub.toString());
 
-  return equals(isEqual(TimeExtras.subtract(time, subtract), result));
+  return equals(isEqual(TimeExtras.delta(time, subtract), result));
 });
 
 summary();

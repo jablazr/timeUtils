@@ -1,37 +1,41 @@
 import Time, { ITime } from "./Time";
 
 const TimeExtras = {
-  add(time: ITime, add: ITime): ITime {
-    time.milliseconds += add.milliseconds;
-    time.seconds += add.seconds;
-    time.minutes += add.minutes;
-    time.hours += add.hours;
+  add(time: ITime, addend: ITime): ITime {
+    time.milliseconds += addend.milliseconds;
+    time.seconds += addend.seconds;
+    time.minutes += addend.minutes;
+    time.hours += addend.hours;
 
-    time = Time.normalize(time);
+    Time.normalize(time);
 
     return time;
   },
 
-  subtract(time: ITime, subtract: ITime): ITime {
-    time.milliseconds -= subtract.milliseconds;
+  delta(time: ITime, difference: ITime): ITime {
+    if (this.toSeconds(difference) > this.toSeconds(time)) {
+      [time, difference] = [difference, time];
+    }
+
+    time.milliseconds -= difference.milliseconds;
     if (time.milliseconds < 0) {
       time.milliseconds += 1000;
       time.seconds--;
     }
 
-    time.seconds -= subtract.seconds;
+    time.seconds -= difference.seconds;
     if (time.seconds < 0) {
       time.seconds += 60;
       time.minutes--;
     }
 
-    time.minutes -= subtract.minutes;
+    time.minutes -= difference.minutes;
     if (time.minutes < 0) {
       time.minutes += 60;
       time.hours--;
     }
 
-    time.hours -= subtract.hours;
+    time.hours -= difference.hours;
     if (time.hours < 0) {
       time.milliseconds = 0;
       time.seconds = 0;
@@ -39,7 +43,7 @@ const TimeExtras = {
       time.hours = 0;
     }
 
-    time = Time.normalize(time);
+    Time.normalize(time);
 
     return time;
   },
