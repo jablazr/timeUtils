@@ -1,12 +1,10 @@
-import Time, { ITime } from "./Time";
+import Time from "./Time";
+import TimeExtras from "./TimeExtras";
 
-const timeValues: ITime = {
-  hours: 0,
-  minutes: 122,
-  seconds: 61,
-  milliseconds: 2001,
-};
+const time = Time.fromString("21:16.842");
+const sub = Time.fromString("18:08");
 
-const time = Time.fromObject(timeValues);
+const seconds = TimeExtras.toSeconds(TimeExtras.subtract(time, sub));
 
 console.log(time.toString());
+console.log(seconds);

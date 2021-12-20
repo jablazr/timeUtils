@@ -1,6 +1,7 @@
 import { equals, summary, test } from "./MyTests";
 import Time, { ITime } from "../Time";
 import { isEqual } from "lodash-es";
+import TimeExtras from "../TimeExtras";
 
 test("time instance", () => {
   const time = new Time();
@@ -237,7 +238,7 @@ test("time addition 1", () => {
     milliseconds: 0,
   };
 
-  return equals(isEqual(Time.add(time, add), result));
+  return equals(isEqual(TimeExtras.add(time, add), result));
 });
 
 test("time addition 2", () => {
@@ -262,7 +263,7 @@ test("time addition 2", () => {
     milliseconds: 4,
   };
 
-  return equals(isEqual(Time.add(time, add), result));
+  return equals(isEqual(TimeExtras.add(time, add), result));
 });
 
 test("time addition 3", () => {
@@ -287,7 +288,7 @@ test("time addition 3", () => {
     milliseconds: 20,
   };
 
-  return equals(isEqual(Time.add(time, add), result));
+  return equals(isEqual(TimeExtras.add(time, add), result));
 });
 
 test("time addition 4", () => {
@@ -312,7 +313,7 @@ test("time addition 4", () => {
     milliseconds: 0,
   };
 
-  return equals(isEqual(Time.add(time, add), result));
+  return equals(isEqual(TimeExtras.add(time, add), result));
 });
 
 test("time subtraction 1", () => {
@@ -337,7 +338,7 @@ test("time subtraction 1", () => {
     milliseconds: 0,
   };
 
-  return equals(isEqual(Time.subtract(time, subtract), result));
+  return equals(isEqual(TimeExtras.subtract(time, subtract), result));
 });
 
 test("time subtraction 2", () => {
@@ -362,7 +363,7 @@ test("time subtraction 2", () => {
     milliseconds: 5,
   };
 
-  return equals(isEqual(Time.subtract(time, subtract), result));
+  return equals(isEqual(TimeExtras.subtract(time, subtract), result));
 });
 
 test("time subtraction 3", () => {
@@ -387,7 +388,7 @@ test("time subtraction 3", () => {
     milliseconds: 0,
   };
 
-  return equals(isEqual(Time.subtract(time, subtract), result));
+  return equals(isEqual(TimeExtras.subtract(time, subtract), result));
 });
 
 test("time subtraction 4", () => {
@@ -412,12 +413,12 @@ test("time subtraction 4", () => {
     milliseconds: 999,
   };
 
-  // const sub = Time.fromObject(Time.subtract(time, subtract));
+  // const sub = Time.fromObject(TimeExtras.subtract(time, subtract));
   // console.log(Time.fromObject(result).toString());
 
   // console.log(sub.toString());
 
-  return equals(isEqual(Time.subtract(time, subtract), result));
+  return equals(isEqual(TimeExtras.subtract(time, subtract), result));
 });
 
 summary();
