@@ -43,6 +43,11 @@ test("time from string 7", () => {
   return equals(time.toString(), "81h 1m 8s");
 });
 
+test("time from string 8", () => {
+  const time = Time.fromString("asdf");
+  return equals(time.toString(), "0s");
+});
+
 test("time string blank", () => {
   const time = new Time();
   return equals(time.toString(), "0s");

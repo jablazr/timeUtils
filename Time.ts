@@ -42,7 +42,7 @@ export default class Time implements ITime {
     const parts = string.split(":");
 
     for (const part of parts) {
-      if (isNaN(parseInt(part))) {
+      if (isNaN(parseInt(part)) || part === "") {
         return new Time();
       }
     }
