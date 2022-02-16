@@ -1,9 +1,9 @@
 {
   "name": "timeutils",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Utilities for working with time.",
-  "main": "index.js",
-  "type": "module",
+  "author": "jablazr",
+  "license": "MIT",
   "scripts": {
     "start": "node --loader ts-node/esm --experimental-specifier-resolution=node main.ts",
     "test": "jest",
@@ -12,8 +12,11 @@
     "check-format": "prettier --check .",
     "prepare": "husky install"
   },
-  "author": "",
-  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist/**"
+  ],
+  "main": "./dist/index.js",
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "husky": "^7.0.4",
